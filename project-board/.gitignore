@@ -1,5 +1,5 @@
-# Created by https://www.toptal.com/developers/gitignore/api/java,gradle,intellij+all,windows,macos,visualstudiocode
-# Edit at https://www.toptal.com/developers/gitignore?templates=java,gradle,intellij+all,windows,macos,visualstudiocode
+# Created by https://www.toptal.com/developers/gitignore/api/java,intellij+all,windows,macos,gradle
+# Edit at https://www.toptal.com/developers/gitignore?templates=java,intellij+all,windows,macos,gradle
 
 ### Intellij+all ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
@@ -148,25 +148,6 @@ Temporary Items
 # iCloud generated files
 *.icloud
 
-### VisualStudioCode ###
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-!.vscode/*.code-snippets
-
-# Local History for Visual Studio Code
-.history/
-
-# Built Visual Studio Code Extensions
-*.vsix
-
-### VisualStudioCode Patch ###
-# Ignore all local history of files
-.history
-.ionide
-
 ### Windows ###
 # Windows thumbnail cache files
 Thumbs.db
@@ -220,4 +201,4 @@ gradle-app.setting
 # Java heap dump
 *.hprof
 
-# End of https://www.toptal.com/developers/gitignore/api/java,gradle,intellij+all,windows,macos,visualstudiocode
+# End of https://www.toptal.com/developers/gitignore/api/java,intellij+all,windows,macos,gradle

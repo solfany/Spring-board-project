@@ -1,0 +1,40 @@
+debug: false
+#management.endpoints.web.exposure.include:"*"
+
+logging:
+  level:
+    com.example.project board: debug
+    org.springframework.web.servlet: debug
+    org.hibernate.type.descriptor.sq l.BasicBinder: trace
+
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/board
+    username: sol
+    password: 1234
+    driver-class-name: org.h2.Driver
+
+    jpa:
+      defer-datasource-initialization: true
+      hibernte.ddl-auto: create
+      show-sql: true
+      properties:
+        hiernate.format_sql: true
+        hibernate.default_batch_fetch_size: 100
+
+      h2.console.enabled: true
+      sql.init.mode: always
+
+---
+
+spring:
+  config.activate.on-profile: testdb
+#  datasource:
+#    url: jdbc:h2:mam:bord;mode=mysql
+#    deiverClassName: org.h2.Diver
+#  sql.init.mode: always
+#  test.databse.replace: none
+
+
+#--- <- ? ???? document ?? ??? ? ??.

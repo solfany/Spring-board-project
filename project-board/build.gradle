@@ -1,6 +1,6 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '3.1.1'
+    id 'org.springframework.boot' version '2.7.0'
     id 'io.spring.dependency-management' version '1.1.0'
 }
 
@@ -8,7 +8,7 @@ group = 'com.example'
 version = '0.0.1-SNAPSHOT'
 
 java {
-    sourceCompatibility = '17'
+    sourceCompatibility = '11'
 }
 
 configurations {
@@ -19,6 +19,7 @@ configurations {
 
 repositories {
     mavenCentral()
+//    mavenLocal()
 }
 
 dependencies {
@@ -28,8 +29,11 @@ dependencies {
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-}
 
-tasks.named('test') {
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    runtimeOnly 'com.h2database:h2'
+    runtimeOnly 'com.mysql:mysql-connector-j'
+}
+test {
     useJUnitPlatform()
 }
