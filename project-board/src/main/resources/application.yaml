@@ -35,5 +35,10 @@ spring:
       init:
         mode: always
 
+  data:
+    rest:
+      base-path: /api
+      detection-strategy: annotated
+
 ---
 
