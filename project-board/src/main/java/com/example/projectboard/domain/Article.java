@@ -23,9 +23,8 @@ import java.util.Set;
         @Index(columnList = "createdAt"),
         @Index(columnList = "createdBy"),
 })
-@EntityListeners(AuditingEntityListener.class)
 @Entity
-public class Article {
+public class Article extends AuditingFields {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
@@ -49,6 +48,7 @@ public class Article {
     @LastModifiedDate
     @Column(nullable = false) private LocalDateTime modifiedAt; // 수정일시
     @LastModifiedBy private String modifiedBy; // 수정자
+
 
     protected Article(){}
     private Article(String title, String content, String hashtag) {
