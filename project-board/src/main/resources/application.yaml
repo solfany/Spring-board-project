@@ -31,11 +31,3 @@ spring:
 
 ---
 
-spring:
-  profiles:
-    active: testdb
-#  datasource:
-#    url: jdbc:h2:mem:bord;mode=mysql
-#    driver-class-name: org.h2.Driver
-#  sql.init.mode: always
-#  test.database.replace: none

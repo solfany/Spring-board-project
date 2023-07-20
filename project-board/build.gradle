@@ -20,20 +20,25 @@ configurations {
 
 repositories {
     mavenCentral()
-//    mavenLocal()
 }
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    // MySQL JDBC 드라이버 의존성 추가
+    implementation 'mysql:mysql-connector-java:8.0.26'
+
+    // H2 데이터베이스 의존성 (선택사항, 사용하지 않을 경우 주석 처리)
     runtimeOnly 'com.h2database:h2'
-    runtimeOnly 'com.mysql:mysql-connector-j'
+
+    // Spring Boot Starter Data JDBC 의존성 추가
+    implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
 }
 test {
     useJUnitPlatform()
