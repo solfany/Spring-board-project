@@ -1,16 +1,13 @@
 plugins {
-    id 'java'
     id 'org.springframework.boot' version '2.7.0'
-    id 'io.spring.dependency-management' version '1.1.0'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
 }
 
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
 
-java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
-}
+sourceCompatibility = '17'
 
 configurations {
     compileOnly {
@@ -23,25 +20,59 @@ repositories {
 }
 
 dependencies {
+    implementation 'org.springdoc:springdoc-openapi-ui:1.6.12'
+    implementation 'org.springdoc:springdoc-openapi-data-rest:1.6.12'
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-data-rest'
     implementation 'org.springframework.data:spring-data-rest-hal-explorer'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
+    runtimeOnly 'com.h2database:h2'
+    runtimeOnly 'mysql:mysql-connector-java'
+    runtimeOnly 'org.postgresql:postgresql'
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     annotationProcessor 'org.projectlombok:lombok'
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+    annotationProcessor 'com.github.therapi:therapi-runtime-javadoc-scribe:0.15.0'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.security:spring-security-test'
 
-    // MySQL JDBC 드라이버 의존성 추가
-    implementation 'mysql:mysql-connector-java:8.0.26'
+    // queryDSL 설정
+    implementation "com.querydsl:querydsl-jpa"
+    implementation "com.querydsl:querydsl-core"
+    implementation "com.querydsl:querydsl-collections"
+    annotationProcessor "com.querydsl:querydsl-apt:${dependencyManagement.importedProperties['querydsl.version']}:jpa"
+    // querydsl JPAAnnotationProcessor 사용 지정
+    annotationProcessor "jakarta.annotation:jakarta.annotation-api"
+    // java.lang.NoClassDefFoundError (javax.annotation.Generated) 대응 코드
+    annotationProcessor "jakarta.persistence:jakarta.persistence-api"
+    // java.lang.NoClassDefFoundError (javax.annotation.Entity) 대응 코드
 
-    // H2 데이터베이스 의존성 (선택사항, 사용하지 않을 경우 주석 처리)
-    runtimeOnly 'com.h2database:h2'
+    tasks.named('test') {
+        useJUnitPlatform()
+    }
 
-    // Spring Boot Starter Data JDBC 의존성 추가
-    implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
-}
-test {
-    useJUnitPlatform()
+
+// Querydsl 설정부
+    def generated = 'src/main/generated'
+
+// querydsl QClass 파일 생성 위치를 지정
+    tasks.withType(JavaCompile) {
+        options.getGeneratedSourceOutputDirectory().set(file(generated))
+    }
+
+// java source set 에 querydsl QClass 위치 추가
+    sourceSets {
+        main.java.srcDirs += [generated]
+    }
+
+// gradle clean 시에 QClass 디렉토리 삭제
+    clean {
+        delete file(generated)
+    }
 }
