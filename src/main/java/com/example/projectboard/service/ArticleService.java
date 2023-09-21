@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityNotFoundException;
 
+//로그 기능
 @Slf4j
 @RequiredArgsConstructor
 @Transactional
