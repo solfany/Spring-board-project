@@ -8,17 +8,23 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.context.annotation.Import;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
+
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@WebMvcTest
 @DisplayName("View 컨트롤러 - 인증")
 @Import(SecurityConfig.class)
+@WebMvcTest(Void.class)
 public class AuthControllerTest {
 
-    @Autowired
-    private MockMvc mvc;
+    private final MockMvc mvc;
+
+    public AuthControllerTest(@Autowired MockMvc mvc) {
+        this.mvc = mvc;
+    }
+
 
     @DisplayName("[view][GET] 로그인 페이지 - 정상 호출")
     @Test
@@ -28,6 +34,8 @@ public class AuthControllerTest {
         // When & Then
         mvc.perform(get("/login"))
                 .andExpect(status().isOk())
-                .andExpect(content().contentTypeCompatibleWith(MediaType.TEXT_HTML));
+                .andExpect(content().contentTypeCompatibleWith(MediaType.TEXT_HTML))
+                .andDo(MockMvcResultHandlers.print());
     }
+
 }
