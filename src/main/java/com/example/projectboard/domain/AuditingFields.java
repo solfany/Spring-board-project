@@ -1,6 +1,5 @@
 package com.example.projectboard.domain;
 
-
 import lombok.Getter;
 import lombok.ToString;
 import org.springframework.data.annotation.CreatedBy;
@@ -21,22 +20,22 @@ import java.time.LocalDateTime;
 @MappedSuperclass
 public abstract class AuditingFields {
 
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    @CreatedDate
-    @Column(nullable = false, updatable = false)
-    private LocalDateTime createdAt; // 생성일시
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+  @CreatedDate
+  @Column(nullable = false, updatable = false)
+  protected LocalDateTime createdAt; // 생성일시
 
-    @CreatedBy
-    @Column(nullable = false, updatable = false, length = 100)
-    private String createdBy; // 생성자
+  @CreatedBy
+  @Column(nullable = false, updatable = false, length = 100)
+  protected String createdBy; // 생성자
 
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    @LastModifiedDate
-    @Column(nullable = false)
-    private LocalDateTime modifiedAt; // 수정일시
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+  @LastModifiedDate
+  @Column(nullable = false)
+  protected LocalDateTime modifiedAt; // 수정일시
 
-    @LastModifiedBy
-    @Column(nullable = false, length = 100)
-    private String modifiedBy; // 수정자
+  @LastModifiedBy
+  @Column(nullable = false, length = 100)
+  protected String modifiedBy; // 수정자
 
 }
