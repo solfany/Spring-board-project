@@ -75,7 +75,7 @@ class ArticleCommentControllerTest {
     // Given
     long articleId = 1L;
     long articleCommentId = 1L;
-    String userId = "solfanyTest";
+    String userId = "solfany Test";
     willDoNothing().given(articleCommentService).deleteArticleComment(articleCommentId, userId);
 
     // When & Then
