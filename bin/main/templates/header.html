@@ -3,26 +3,54 @@
 <head>
   <meta charset="UTF-8">
   <title>Title</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.1/css/bootstrap.min.css">
+  <style>
+    /* Custom styles for Instagram-like design */
+    header {
+      border-bottom: 1px solid #e6e6e6;
+    }
+
+    .nav-link {
+      color: #000 !important;
+    }
+
+    .btn-outline-light {
+      border-color: #000 !important;
+      color: #000 !important;
+    }
+
+    .btn-outline-light:hover {
+      background-color: #000 !important;
+      color: #fff !important;
+    }
+
+    #kakao-login img {
+      width: 32px; /* Adjust based on your requirement */
+      height: auto;
+    }
+  </style>
 </head>
 <body>
-<header class="p-3 bg-dark text-white">
+<header class="p-3 bg-white text-dark">
   <div class="container">
     <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
       <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-        <li><a id="home" href="#" class="nav-link px-2 text-secondary">Home</a></li>
-        <li><a id="hashtag" href="#" class="nav-link px-2 text-secondary">Hashtags</a></li>
+        <li><a id="home" href="#" class="nav-link px-2">Home</a></li>
+        <li><a id="hashtag" href="#" class="nav-link px-2">Hashtags</a></li>
       </ul>
 
       <div class="text-end">
-        <span id="username" class="text-white me-2">username</span>
-        <a role="button" id="login" class="btn btn-outline-light me-2">Login</a>
+        <span id="username" class="text-dark me-2">username</span>
+        <a role="button" id="login" class="btn btn-outline-light btn-sm me-2">Login</a>
         <a role="button" id="kakao-login" class="me-2">
-          <img alt="Kakao Login" src="/images/kakao_login_medium.png">
+            <img alt="Kakao Login" src="/images/kakao_login_medium.png">
         </a>
-        <a role="button" id="logout" class="btn btn-outline-light me-2">Logout</a>
+        <a role="button" id="logout" class="btn btn-outline-light btn-sm me-2">Logout</a>
       </div>
     </div>
   </div>
 </header>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

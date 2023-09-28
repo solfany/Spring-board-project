@@ -3,23 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <title>Title</title>
+  <style>
+    @font-face {
+      font-family: 'IAMAPLAYER';
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/IAMAPLAYER.woff2') format('woff2');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    body {
+      font-family: 'IAMAPLAYER', sans-serif;
+    }
+  </style>
+  <link href="header.css" rel="stylesheet" />
 </head>
 <body>
-<header class="p-3 bg-dark text-white">
+<header class="container-fluid d-flex flex-wrap justify-content-between align-items-center" style="background-image: url('https://github.com/solfany/Spring-board-project/assets/123814718/4f557631-1aea-4384-b710-e3b54097f981'); background-size: cover; background-repeat: no-repeat; background-position: center; height: 150px;">
   <div class="container">
     <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
       <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-        <li><a id="home" href="#" class="nav-link px-2 text-secondary">Home</a></li>
-        <li><a id="hashtag" href="#" class="nav-link px-2 text-secondary">Hashtags</a></li>
+        <li><a id="home" href="#" class="nav-link px-2 text-primary">
+          <img alt="home" src="https://github.com/solfany/Spring-board-project/assets/123814718/31e07dc3-a26e-4950-9f39-538f2fcff9fe" width="50rem">
+          HOME</a></li>
+        <li><a id="hashtag" href="#" class="nav-link px-2 text-success">
+          <img alt="hashtag" src="https://github.com/solfany/Spring-board-project/assets/123814718/bb46231e-388a-4c0d-9d79-f9cf228d6a2d" width="50rem">
+          HASHTAG</a></li>
       </ul>
 
       <div class="text-end">
-        <span id="username" class="text-white me-2">username</span>
-        <a role="button" id="login" class="btn btn-outline-light me-2">Login</a>
-        <a role="button" id="kakao-login" class="me-2">
-          <img alt="Kakao Login" src="/images/kakao_login_medium.png">
-        </a>
-        <a role="button" id="logout" class="btn btn-outline-light me-2">Logout</a>
+        <span id="username" th:text="'환영합니다 ' + ${#authentication?.principal?.nickname} + '님'"></span>
+        <a role="button" id="login" class="btn btn-outline-info">Login</a>
+        <a role="button" id="kakao-login" class="btn btn-outline-warning">Kakao Login</a>
+        <a role="button" id="logout" class="btn btn-outline-success btn-sm me-2">Logout</a>
       </div>
     </div>
   </div>

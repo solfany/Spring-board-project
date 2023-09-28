@@ -1,0 +1,20 @@
+/* 기본 스타일: 이것은 큰 화면에서 적용될 스타일입니다. */
+.nav-link img {
+    width: 55rem;
+}
+
+/* 모바일 환경에 대한 미디어 쿼리 */
+@media (max-width: 767.98px) {  /* Bootstrap의 sm breakpoint 보다 작은 화면 크기를 대상으로 함 */
+    .nav-link img {
+        width: 30rem;  /* 여기에서 원하는 모바일 화면 크기로 조절하세요 */
+    }
+}
+@font-face {
+    font-family: 'GangwonEdu_OTFBoldA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+    font-family: 'GangwonEdu_OTFBoldA', sans-serif;
+}

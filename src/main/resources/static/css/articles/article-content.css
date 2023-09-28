@@ -1,3 +1,12 @@
+@font-face {
+  font-family: 'GangwonEdu_OTFBoldA';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  font-family: 'GangwonEdu_OTFBoldA', sans-serif;
+}
 /* 게시글 본문 */
 #article-content > pre {
   white-space: pre-wrap; /* Since CSS 2.1 */
@@ -5,4 +14,95 @@
   white-space: -pre-wrap; /* Opera 4-6 */
   white-space: -o-pre-wrap; /* Opera 7 */
   word-wrap: break-word; /* Internet Explorer 5.5+ */
+}
+/*추가 css*/
+/* 기본 설정 */
+
+
+
+/* 본문 영역 */
+#article-main {
+  padding: 20px;
+  border: 1px solid #dbdbdb;
+  border-radius: 5px;
+  margin-top: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+#article-header h1 {
+  color: #333;
+  font-weight: 600;
+}
+
+/* 사이드바 영역 */
+aside {
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #dbdbdb;
+  border-radius: 5px;
+}
+
+#nickname {
+  font-weight: bold;
+  color: #333;
+}
+
+#email {
+  color: #0095f6; /* 인스타그램 메인 컬러 */
+  text-decoration: none;
+}
+
+#hashtag a {
+  color: #fff;
+}
+
+/* 본문 영역 */
+pre {
+  background-color: #f7f9fa;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+/*#article-buttons a, #article-buttons button {*/
+/*  width: 100%;*/
+/*}*/
+
+/* 댓글 영역 */
+.comment-form {
+  /*background-color: #f8f8f8;*/
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.comment-textbox {
+  resize: none;
+}
+
+#article-comments .parent-comment, .child-comment {
+  /*background-color: #f8f8f8;*/
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+/* 페이지네이션 */
+#pagination .page-link {
+  color: #0095f6;
+}
+
+#pagination .page-link:hover {
+  background-color: #f8fcff;
+}
+li, ul{
+  list-style-type: none;
+}
+#child-comment{
+  /*border: 0.005rem solid #c4c4c4;*/
+  border-radius: 0.57rem;
+  background-color: #e8ebec;
+}
+#parent-comment{
+  /*border: 0.005rem solid #c4c4c4;*/
+  border-radius: 0.57rem;
+  background-color: #e8ebec;
 }
