@@ -14,7 +14,6 @@
       />
     </attr>
     <attr sel="#search-value" th:value="${param.searchValue}" />
-
     <attr sel="#article-table">
       <attr sel="thead/tr">
         <attr sel="th.title/a" th:text="'제목'" th:href="@{/articles(

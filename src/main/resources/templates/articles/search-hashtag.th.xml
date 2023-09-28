@@ -51,11 +51,10 @@
         </attr>
       </attr>
     </attr>
-
     <attr sel="#pagination">
       <attr sel="ul">
         <attr sel="li[0]/a"
-              th:text="'previous'"
+              th:text="'이전 글'"
               th:href="@{/articles(page=${articles.number - 1}, searchType=${searchType.name}, searchValue=${param.searchValue})}"
               th:class="'page-link' + (${articles.number} <= 0 ? ' disabled' : '')"
         />
@@ -67,7 +66,7 @@
           />
         </attr>
         <attr sel="li[2]/a"
-              th:text="'next'"
+              th:text="'다음 글'"
               th:href="@{/articles(page=${articles.number + 1}, searchType=${searchType.name}, searchValue=${param.searchValue})}"
               th:class="'page-link' + (${articles.number} >= ${articles.totalPages - 1} ? ' disabled' : '')"
         />
