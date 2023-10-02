@@ -99,15 +99,10 @@ hr {
 
 /* table-header.css */
 
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f7f7f7;
-}
 
 #header, #footer {
   background-color: #fff;
   padding: 10px 0;
-  border-bottom: 1px solid #e6e6e6;
 }
 
 #indexContatiner {
@@ -132,7 +127,7 @@ h1 {
 }
 
 #hashtags h2 a:hover {
-  /*text-decoration: none;*/
+  text-decoration: none;
 }
 
 #hashtags h2:hover {
